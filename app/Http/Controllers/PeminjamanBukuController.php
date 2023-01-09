@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Notifikasi;
 use App\Models\PeminjamanBuku;
 use Illuminate\Http\Request;
 
@@ -35,6 +36,13 @@ class PeminjamanBukuController extends Controller
         $item->update([
             'return_date' => request('return_date'),
             'status' => request('status')
+        ]);
+
+        Notifikasi::create([
+            'pengirim_id' => auth()->id(),
+            'judul' => auth()->user()->name . ' telah merubah status peminjaman buku dengan judul "' . $item->buku->judul . '" ke status' . $item->status,
+            'penerima_id' => $item->siswa->user->id,
+            'status' => 0
         ]);
 
         return redirect()->route('peminjaman-buku.index')->with('success', 'Peminjaman buku berhasil diupdate!');

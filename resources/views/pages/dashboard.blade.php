@@ -1,40 +1,68 @@
 @extends('layouts.app')
 @section('content')
-<center>
-    <font face="San-serif" size="6"><b>Payment</b></font>
-</center>
-<section style="margin-left:300px;margin-right:300px">
-    <div class="card">
-        <div class="card-header" style="background-color:#85A9FF;color:white">Student Information</div>
-        <div class="row row-cols-1">
-            <div class="card-body col-2" style="margin-left:20px">
-                <p>Full Name</p>
-                <p>NIS</p>
-                <p>Class</p>
-                <p>Semester</p>
-                <p>Parents Name</p>
-            </div>
-            <div class="card-body col-1"style="margin-left:100px">
-                <p>:</p>
-                <p>:</p>
-                <p>:</p>
-                <p>:</p>
-                <p>:</p>
-            </div>
-            <div class="card-body col-5" style="margin-right:100px">
-                <p>Amanda Aurellie Utami</p>
-                <p>5012067</p>
-                <p>X IPA</p>
-                <p>2</p>
-                <p>Muhammad Budi Utomo</p>
-            </div>
-        </div>
-        <div class="d-grid gap-2" style="width:20%;margin-left:auto;margin-right:30px">
-            <a href="PaymentNow-Murid.php">
-                <button type="submit" class="btn btn-primary" id="payment" name="payment">Pay Now</button>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 mb-3">
+            <a href="{{ route('siswa.index') }}" class="text-decoration-none text-dark">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="text-center">
+                            <div class="display-3">{{ $count['siswa'] }}</div>
+                            <div class="fs-6 mt-3">Siswa</div>
+                        </div>
+                    </div>
+                </div>
             </a>
         </div>
-        <br><br>
+        <div class="col-md-3 mb-3">
+            <a href="{{ route('users.index') }}" class="text-decoration-none text-dark">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="text-center">
+                            <div class="display-3">{{ $count['guru'] }}</div>
+                            <div class="fs-6 mt-3">Guru</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-3 mb-3">
+            <a href="{{ route('buku.index') }}" class="text-decoration-none text-dark">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="text-center">
+                            <div class="display-3">{{ $count['buku'] }}</div>
+                            <div class="fs-6 mt-3">Buku</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-3 mb-3">
+            <a href="{{ route('ekstrakulikuler.index') }}" class="text-decoration-none text-dark">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="text-center">
+                            <div class="display-3">{{ $count['ekstrakulikuler'] }}</div>
+                            <div class="fs-6 mt-3">Ekstrakulikuler</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-3 mb-3">
+            <a href="{{ route('aktivitas.index') }}" class="text-decoration-none text-dark">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="text-center">
+                            <div class="display-3">{{ $count['aktivitas'] }}</div>
+                            <div class="fs-6 mt-3">Kegiatan</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
     </div>
-</section>
+</div>
 @endsection

@@ -9,6 +9,7 @@ use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EkstrakulikulerController;
 use App\Http\Controllers\MetodePembayaranController;
+use App\Http\Controllers\NotifikasiController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PembayaranAsramaController;
 use App\Http\Controllers\PembayaranSiswaController;
@@ -86,7 +87,8 @@ Route::middleware('auth')->group(function(){
         Route::post('list-pembayaran-siswa',[PageController::class,'list_pembayaran_siswa_store'])->name('list-pembayaran-siswa.store');
     });
 
-
+    Route::get('notifikasi',[NotifikasiController::class,'index'])->name('notifikasi.index');
+    Route::post('notifikasi/update',[NotifikasiController::class,'update'])->name('notifikasi.update');
 });
 
 Route::post('login-proses',[AuthController::class,'proses_login'])->name('login-proses');

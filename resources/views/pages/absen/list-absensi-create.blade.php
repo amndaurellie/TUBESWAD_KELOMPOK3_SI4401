@@ -19,8 +19,6 @@
             </div>
         </div>
         <div class="row">
-            @if (Carbon\Carbon::now()->translatedFormat('l') !== 'Sabtu')
-            @if (Carbon\Carbon::now()->translatedFormat('l') !== 'Minggu')
             <form action="{{ route('list-absensi.store') }}" method="post" class="needs-validation" novalidate=""
                 enctype="multipart/form-data">
                 @csrf
@@ -65,10 +63,6 @@
                     <button class="btn float-right btn-primary">Submit</button>
                 </div>
             </form>
-            @endif
-            @else
-            <div class="fs-3">Hari Libur !</div>
-            @endif
         </div>
     </div>
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\MetodePembayaran;
+use App\Models\Notifikasi;
 use App\Models\PembayaranAsrama;
 use App\Models\PembayaranSiswa;
 use App\Models\Siswa;
@@ -108,6 +109,14 @@ class PembayaranSiswaController extends Controller
             'bukti' => $bukti,
             'status' => request('status')
         ]);
+
+        Notifikasi::create([
+            'pengirim_id' => auth()->id(),
+            'judul' => auth()->user()->name . ' telah merubah status pembayaran asrama pada tahun ajaran ' . $item->asrama->tahun_ajaran . ' semester ' . $item->asrama->semester . ' dengan nominal Rp.' . number_format($item->nominal) . ' ke status ' . $item->status,
+            'penerima_id' => $item->siswa->user->id,
+            'status' => 0
+        ]);
+
 
 
         return redirect()->route('pembayaran-siswa.index')->with('success','Pembayaran Siswa berhasil diupdate.');

@@ -99,7 +99,7 @@ class AuthController extends Controller
             'email' => ['required','email','unique:users,email'],
             'password' => ['required','min:5','confirmed'],
             'nomor_hp' => ['required'],
-            'role' => ['required','in:bendaharawan,siswa,pustakawan,']
+            'role' => ['required','in:bendaharawan,siswa,pustakawan,guru']
         ]);
 
         $data = request()->all();

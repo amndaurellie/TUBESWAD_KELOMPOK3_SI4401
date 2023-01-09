@@ -3,7 +3,7 @@
     <div class="container">
         <section id="konten">
             <div class="d-flex justify-content-between">
-                <font face="San-serif" size="5"><b>Pelajaran Sekolah</b></font>
+                <font face="San-serif" size="5"><b>Daftar Buku</b></font>
                 <form action="{{ route('list-buku.index') }}" method="get">
                     <div class="form-group row">
                        <div class="col-md-9">

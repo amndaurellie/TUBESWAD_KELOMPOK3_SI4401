@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm navbar-light fixed-top" style="background-color: #ffffff;">
     <div class="container-md">
-        <a class="navbar-brand" href="Home-Murid.php">
+        <a class="navbar-brand" href="{{ route('dashboard') }}">
             <img src="{{ asset('assets/backend/logo.png') }}" width="200" height="50">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -9,10 +9,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                @if (auth()->user()->role === 'admin')
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('dashboard') }}" style="font-family:San-serif">DASHBOARD</a>
                 </li>
-                @if (auth()->user()->role === 'admin')
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -140,7 +140,9 @@
                     </a>
                     <ul class="dropdown-menu">
                         <a class="dropdown-item" href="{{ route('profile.index') }}">Profile</a>
-                        <a class="dropdown-item" href="Notif-Murid.php">Notification</a>
+                        @if(auth()->user()->role !=='guru')
+                        <a class="dropdown-item" href="{{ route('notifikasi.index') }}">Notification</a>
+                        @endif
                         <a class="dropdown-item" href="javascript:void(0)"
                             onclick="document.getElementById('formLogout').submit()">Logout</a>
                         <form action="{{ route('logout') }}" method="post" id="formLogout">
